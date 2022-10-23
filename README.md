@@ -38,3 +38,5 @@ docker run -e XDG_RUNTIME_DIR=/tmp \
 Here I am using port 0.0.0.0:5910 on remmina to access the screen.
 ![image](https://user-images.githubusercontent.com/105891199/197418956-3480b56f-f68b-4907-8593-435887fd816f.png)
 
+I have changed the mod key in sway config file to use alt instead of windows. To open a terminal in swaywm use alt+enter key. 
+![image](https://user-images.githubusercontent.com/105891199/197419138-cffa34dc-08b2-4c81-b550-4b28abf5cfce.png)
