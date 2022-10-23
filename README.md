@@ -30,7 +30,7 @@ docker run -e XDG_RUNTIME_DIR=/tmp \
                     -e WLR_LIBINPUT_NO_DEVICES=1 \
                     -e SWAYSOCK=/tmp/sway-ipc.sock \
                     -p 5910:5900 \
-                    -p 7023:7023 <imagename>
+                     <imagename>
 
 ```
 
