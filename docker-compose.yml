@@ -1,0 +1,26 @@
+version: "2.1"
+services:
+    tailscale:
+        hostname: myservice                         # This will become the tailscale device name
+        image: tailscale/tailscale
+        volumes:
+            - "./tailscale_var_lib:/var/lib"        # State data will be stored in this directory
+            - "/dev/net/tun:/dev/net/tun"           # Required for tailscale to work
+        cap_add:                                    # Required for tailscale to work
+          - net_admin
+          - sys_module
+        command: tailscaled
+    sway:
+        build: .                      # Your image goes here
+        environment:  
+          - XDG_RUNTIME_DIR=/home/Rohan
+          - WAYLAND_DISPLAY=$WAYLAND_DISPLAY 
+          - WLR_BACKENDS=headless
+          - WLR_LIBINPUT_NO_DEVICES=1 
+        command: dbus-run-session -- sway
+        user: Rohan
+        tty: true
+        stdin_open: true
+        volumes:
+          -  $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:/home/Rohan/$WAYLAND_DISPLAY  
+        network_mode: service:tailscale
